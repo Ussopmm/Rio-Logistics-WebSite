@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rio Logistics - транспортная компания</title>
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
+  <link rel="stylesheet" href="./assets/css/company.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Rubik:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="assets/css/test.css">
+
+  <!-- 
+    - preload images
+  -->
+
+  <style>
+    #slider {
+   margin: 0 auto;
+   width: 800px;
+   max-width: 100%;
+   text-align: center;
+}
+#slides .slide-content img {
+   max-width: 100%;
+   max-height: 100%;
+}
+
+#slider input[type="radio"] {
+   display: none;
+}
+#slider label {
+   cursor: pointer;
+   text-decoration: none;
+}
+#slides {
+   padding: 10px;
+   border: 3px solid #ccc;
+   background: #fff;
+   position: relative;
+   z-index: 1;
+}
+#overflow {
+   width: 100%;
+   overflow: hidden;
+}
+#slide1:checked ~ #slides .inner {
+   margin-left: 0;
+}
+#slide2:checked ~ #slides .inner {
+   margin-left: -100%;
+}
+#slide3:checked ~ #slides .inner {
+   margin-left: -200%;
+}
+#slide4:checked ~ #slides .inner {
+   margin-left: -300%;
+}
+#slides .inner {
+   transition: margin-left 800ms cubic-bezier(0.77, 0, 0.175, 1);
+   width: 400%;
+   line-height: 0;
+   height: 400px;
+}
+#slides .slide {
+   width: 25%;
+   float: left;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+   color: #fff;
+}
+#slides .slide_1 {
+   background: #00171f;
+}
+#slides .slide_2 {
+   background: #003459;
+}
+#slides .slide_3 {
+   background: #007ea7;
+}
+#slides .slide_4 {
+   background: #00a8e8;
+}
+#controls {
+   margin: -180px 0 0 0;
+   width: 100%;
+   height: 50px;
+   z-index: 3;
+   position: relative;
+}
+#controls label {
+   transition: opacity 0.2s ease-out;
+   display: none;
+   width: 50px;
+   height: 50px;
+   opacity: 0.4;
+}
+#controls label:hover {
+   opacity: 1;
+}
+#slide1:checked ~ #controls label:nth-child(2),
+#slide2:checked ~ #controls label:nth-child(3),
+#slide3:checked ~ #controls label:nth-child(4),
+#slide4:checked ~ #controls label:nth-child(1) {
+   background: url(https://image.flaticon.com/icons/svg/130/130884.svg)
+      no-repeat;
+   float: right;
+   margin: 0 -50px 0 0;
+   display: block;
+}
+#slide1:checked ~ #controls label:nth-last-child(2),
+#slide2:checked ~ #controls label:nth-last-child(3),
+#slide3:checked ~ #controls label:nth-last-child(4),
+#slide4:checked ~ #controls label:nth-last-child(1) {
+   background: url(https://image.flaticon.com/icons/svg/130/130882.svg)
+      no-repeat;
+   float: left;
+   margin: 0 0 0 -50px;
+   display: block;
+}
+#bullets {
+   margin: 150px 0 0;
+   text-align: center;
+}
+#bullets label {
+   display: inline-block;
+   width: 10px;
+   height: 10px;
+   border-radius: 100%;
+   background: #ccc;
+   margin: 0 10px;
+}
+#slide1:checked ~ #bullets label:nth-child(1),
+#slide2:checked ~ #bullets label:nth-child(2),
+#slide3:checked ~ #bullets label:nth-child(3),
+#slide4:checked ~ #bullets label:nth-child(4) {
+   background: #444;
+}
+@media screen and (max-width: 900px) {
+   #slide1:checked ~ #controls label:nth-child(2),
+   #slide2:checked ~ #controls label:nth-child(3),
+   #slide3:checked ~ #controls label:nth-child(4),
+   #slide4:checked ~ #controls label:nth-child(1),
+   #slide1:checked ~ #controls label:nth-last-child(2),
+   #slide2:checked ~ #controls label:nth-last-child(3),
+   #slide3:checked ~ #controls label:nth-last-child(4),
+   #slide4:checked ~ #controls label:nth-last-child(1) {
+      margin: 0;
+   }
+   #slides {
+      max-width: calc(100% - 140px);
+      margin: 0 auto;
+   }
+}
+
+
+/* Центрирование заголовка "О компании" */
+h1 {
+    text-align: center;
+}
+
+/* Изменение шрифта на более привлекательный */
+h1 {
+    font-family: Arial, sans-serif; /* Пример шрифта, замените на ваш выбор */
+    font-size: 28px; /* Пример размера шрифта, замените на ваш выбор */
+    font-weight: bold; /* Жирное начертание */
+}
+
+/* Создание отступа слева для основного текста */
+article {
+    margin-left: 140px; /* Пример отступа, замените на ваш выбор */
+   margin-right: 140px;
+}
+
+  </style>
+
+
+
+
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+        <h1>
+            <a href="#" class="logo"><img src="assets/images/rio_image-removebg-preview.png" alt=""></a>
+        </h1>
+
+        <nav class="navbar" data-navbar>
+
+            <div class="navbar-top">
+                <a href="#" class="logo">RIO</a>
+
+                <button class="nav-close-btn" aria-label="Close menu" data-nav-toggler>
+                    <ion-icon name="close-outline"></ion-icon>
+                </button>
+            </div>
+
+            <ul class="navbar-list">
+
+                <!-- <li class="navbar-item">
+                  <a href="#home" class="navbar-link" data-nav-link>
+                    <span>Home</span>
+
+                    <ion-icon name="chevron-forward"></ion-icon>
+                  </a>
+                </li> -->
+
+                <li class="navbar-item">
+                    <a href="index.html" class="navbar-link" data-nav-link>
+                        <span>Главное</span>
+
+                        <ion-icon name="chevron-forward"></ion-icon>
+                    </a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="company.html" class="navbar-link" data-nav-link>
+                        <span>О компании</span>
+
+                        <ion-icon name="chevron-forward"></ion-icon>
+                    </a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="write.html" class="navbar-link" data-nav-link>
+                        <span>Напишите нам</span>
+
+                        <ion-icon name="chevron-forward"></ion-icon>
+                    </a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="contacts.html" class="navbar-link" data-nav-link>
+                        <span>Контакты</span>
+
+                        <ion-icon name="chevron-forward"></ion-icon>
+                    </a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="path.html" class="navbar-link" data-nav-link>
+                        <span>Маршруты</span>
+
+                        <ion-icon name="chevron-forward"></ion-icon>
+                    </a>
+                </li>
+
+               
+
+                <li class="navbar-item">
+                    <a href="strahovanie.html" class="navbar-link" data-nav-link>
+                        <span>Страхование</span>
+
+                        <ion-icon name="chevron-forward"></ion-icon>
+                    </a>
+                </li>
+            </ul>
+
+        </nav>
+
+        <div class="header-contact">
+
+            <div>
+                <p class="contact-label">Наши контакты</p>
+
+                <a href="tel:12345678910" class="contact-number">+7 775 153 6006</a>
+                <a href="tel:12345678910" class="contact-number">+7 700 127 2222</a>
+
+            </div>
+
+            <div class="contact-icon">
+                <ion-icon name="call-outline"></ion-icon>
+            </div>
+
+        </div>
+
+        <button class="nav-open-btn" aria-label="Open menu" data-nav-toggler>
+            <ion-icon name="menu-outline"></ion-icon>
+        </button>
+
+        <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+</header>
+
+
+<br><br><br><br><br><br><br><br>
+<!-- <div id="wrap">
+<section>
+<article>
+<h1>О компании</h1>
+<p style="text-align: left;">
+   Компания РИО Логистик – ваш надежный партнер в области перевозки автомобилей любого типа. Наша компания сочетает в себе многолетний опыт, профессионализм и индивидуальный подход к каждому клиенту. Мы работаем на рынке более 10 лет и за это время зарекомендовали себя как надежный и компетентный партнер.</p>
+<p style="text-align: left;">Перевозка грузов на автовозах выгодна с экономической точки зрения по сравнению с другими видами транспорта. 
+   Мы придерживаемся стабильной ценовой политики и обеспечиваем быструю доставку благодаря нашему опыту и высокой скорости выполнения заказов.</p>
+<p style="text-align: left;">Какой бы вы компании хотели доверить перевозку своих автомобилей? Правильно! Надежной и качественной, безопасной и с хорошей репутацией. Той, которой доверяют многие, и несомненно, вы нашли ее.</p>
+<p style="text-align: left;">Мы используем передовые технологии отслеживания, обеспечивая постоянный контроль за перемещением автомобилей в режиме реального времени. Наши транспортные средства оборудованы современными системами безопасности. Наш индивидуальный подход позволяет нам лучше понимать ваши потребности и предоставлять услуги, соответствующие вашим требованиям. Выбирая РИО Логистик, вы выбираете надежного и опытного партнера для перевозки ваших автомобилей. Мы готовы воплощать ваши логистические задумки в жизнь с максимальным комфортом и эффективностью.</p>
+<p style="text-align: left;">В нашей компании работают водители с огромным стажем в сфере перевозок, честные, добрые и приветливые, с которыми не возникнет никаких конфликтов. Их задача – не просто перевезти ваш автомобиль, но сделать это максимально быстро, бережно и безопасно, а также аккуратно погрузить его на автовоз. Водители проверяют всю документацию, состояние машин, составляют акт приема-передачи с учетом всех особенностей и нюансов. А это, поверьте, требует особого профессионализма и мастерства. Ответственность всех наших водителей застрахована.</p>
+<p style="text-align: left;">Мы ценим каждого клиента и гарантируем высокое качество обслуживания. Наша репутация безупречна, и мы можем похвастаться демократичными ценами и высоким уровнем профессионализма. Если у вас остались вопросы, наши менеджеры всегда готовы помочь вам.</p>
+<p style="text-align: left;">Если у вас все же остались какие-то вопросы, то свяжитесь с нами. Наши менеджеры ответят на любой ваш вопрос, проконсультируют по всем нюансам, помогут рассчитать стоимость перевозки.</p>
+<p style="text-align: left;"><strong>Будем рады виsдеть вас в рядах наших клиентов!</strong></p>
+
+</article>
+</section>
+
+
+</div> -->
+<section class="about_section layout_padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-md-6">
+        <div class="detail-box">
+          <h2>
+            About us
+          </h2>
+          <p style="text-align: left;">
+            Компания РИО Логистик – ваш надежный партнер в области перевозки автомобилей любого типа. Мы сочетаем в себе многолетний опыт, профессионализм и индивидуальный подход к каждому клиенту. Работаем на рынке более 10 лет и зарекомендовали себя как надежный и компетентный партнер.
+
+            Перевозка грузов на автовозах выгодна с экономической точки зрения по сравнению с другими видами транспорта. Мы придерживаемся стабильной ценовой политики и обеспечиваем быструю доставку благодаря нашему опыту и высокой скорости выполнения заказов.
+            
+            Мы используем передовые технологии отслеживания и обеспечиваем постоянный контроль за перемещением автомобилей в режиме реального времени. Наши транспортные средства оборудованы современными системами безопасности.
+            
+            В нашей компании работают водители с огромным стажем в сфере перевозок. Их задача – не просто перевезти ваш автомобиль, но сделать это максимально быстро, бережно и безопасно, а также аккуратно погрузить его на автовоз. 
+            
+            Мы ценим каждого клиента и гарантируем высокое качество обслуживания. Наша репутация безупречна, и мы можем похвастаться демократичными ценами и высоким уровнем профессионализма. Если у вас остались вопросы, наши менеджеры всегда готовы помочь вам.          </p>
+      
+          <a href="">
+            Read More
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-7 col-md-6">
+        <div class="img-box">
+          <img src="assets/images/photo_avto1.jpeg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<br><br><br><br>
+<footer class="footer">
+   <div class="container">
+
+     <div class="footer-top section">
+
+       <div class="footer-brand">
+
+         <a href="#" class="logo">Наши соц-сети</a>
+
+         <!-- <p class="footer-text">
+           Many desktop publishing packages and web page editors now use are dolra Ipsum as their default.
+         </p> -->
+         <br>
+         <ul class="social-list">
+
+           <li>
+             <a href="https://wa.me/+7 775 153 6006" class="social-link">
+               <ion-icon name="logo-whatsapp"></ion-icon>        
+             </a>
+           </li>
+
+           <li>
+             <a href="#" class="social-link">
+               <ion-icon name="paper-plane-outline"></ion-icon>
+               </a>
+           </li>
+
+           <li>
+             <a href="https://www.instagram.com/riologistics_ast?igsh=b2UyZW93dnRxbmtx" class="social-link">
+               <ion-icon name="logo-instagram"></ion-icon>
+             </a>
+           </li>
+
+           <!-- <li>
+             <a href="#" class="social-link">
+               <ion-icon name="logo-youtube"></ion-icon>
+             </a>
+           </li> -->
+
+         </ul>
+
+       </div>
+
+       <ul class="footer-list">
+
+         <li>
+           <p class="footer-list-title">Контактная информация</p>
+         </li>
+
+         <li>
+           <a href="#" class="footer-link">+7 775 153 6006</a>
+         </li>
+
+         <li>
+           <a href="#" class="footer-link">+7 700 127 2222</a>
+         </li>
+
+
+         <li>
+           <a href="#" class="footer-link">riologistic.astana@gmail.com</a>
+         </li>
+
+         
+         <li>
+           <a href="#" class="footer-link">г. Астана</a>
+         </li>
+
+       
+
+       </ul>
+     </div>
+<!-- 
+     <div class="footer-bottom">
+       <p class="copyright">
+         &copy; 2022 Transportio. All Rights Reserved by <a href="#" class="copyright-link">codewithsadee</a>
+       </p>
+     </div> -->
+
+   </div>
+   <div class="whatsapp-btn-container">
+     <a class="whatsapp-btn" href="https://wa.me/+77751536006"><i class="fab fa-whatsapp"></i></a>
+     <span>Contact Us</span>
+ </div>
+ 
+ </footer>
+  
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js" defer></script>
+
+  <script>
+  
+  </script>
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!-- <script src="assets/js/modal.js"></script> -->
+
+  <script src="assets/js/modal.js"></script>
+
+    
+</body>
+
+</html>

@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RIO Logistic - компания по перевозке автомобилей</title>
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="assets/css/for_slider.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+  href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Rubik:wght@400;500;600;700&display=swap"
+  rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/test.css">
+
+  <style>
+    #slider {
+   margin: 0 auto;
+   width: 800px;
+   max-width: 100%;
+   text-align: center;
+}
+#slides .slide-content img {
+   max-width: 100%;
+   max-height: 100%;
+}
+
+#slider input[type="radio"] {
+   display: none;
+}
+#slider label {
+   cursor: pointer;
+   text-decoration: none;
+}
+#slides {
+   padding: 10px;
+   border: 3px solid #ccc;
+   background: #fff;
+   position: relative;
+   z-index: 1;
+}
+#overflow {
+   width: 100%;
+   overflow: hidden;
+}
+#slide1:checked ~ #slides .inner {
+   margin-left: 0;
+}
+#slide2:checked ~ #slides .inner {
+   margin-left: -100%;
+}
+#slide3:checked ~ #slides .inner {
+   margin-left: -200%;
+}
+#slide4:checked ~ #slides .inner {
+   margin-left: -300%;
+}
+#slides .inner {
+   transition: margin-left 800ms cubic-bezier(0.77, 0, 0.175, 1);
+   width: 400%;
+   line-height: 0;
+   height: 400px;
+}
+#slides .slide {
+   width: 25%;
+   float: left;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+   color: #fff;
+}
+#slides .slide_1 {
+   background: #00171f;
+}
+#slides .slide_2 {
+   background: #003459;
+}
+#slides .slide_3 {
+   background: #007ea7;
+}
+#slides .slide_4 {
+   background: #00a8e8;
+}
+#controls {
+   margin: -180px 0 0 0;
+   width: 100%;
+   height: 50px;
+   z-index: 3;
+   position: relative;
+}
+#controls label {
+   transition: opacity 0.2s ease-out;
+   display: none;
+   width: 50px;
+   height: 50px;
+   opacity: 0.4;
+}
+#controls label:hover {
+   opacity: 1;
+}
+#slide1:checked ~ #controls label:nth-child(2),
+#slide2:checked ~ #controls label:nth-child(3),
+#slide3:checked ~ #controls label:nth-child(4),
+#slide4:checked ~ #controls label:nth-child(1) {
+   background: url(https://image.flaticon.com/icons/svg/130/130884.svg)
+      no-repeat;
+   float: right;
+   margin: 0 -50px 0 0;
+   display: block;
+}
+#slide1:checked ~ #controls label:nth-last-child(2),
+#slide2:checked ~ #controls label:nth-last-child(3),
+#slide3:checked ~ #controls label:nth-last-child(4),
+#slide4:checked ~ #controls label:nth-last-child(1) {
+   background: url(https://image.flaticon.com/icons/svg/130/130882.svg)
+      no-repeat;
+   float: left;
+   margin: 0 0 0 -50px;
+   display: block;
+}
+#bullets {
+   margin: 150px 0 0;
+   text-align: center;
+}
+#bullets label {
+   display: inline-block;
+   width: 10px;
+   height: 10px;
+   border-radius: 100%;
+   background: #ccc;
+   margin: 0 10px;
+}
+#slide1:checked ~ #bullets label:nth-child(1),
+#slide2:checked ~ #bullets label:nth-child(2),
+#slide3:checked ~ #bullets label:nth-child(3),
+#slide4:checked ~ #bullets label:nth-child(4) {
+   background: #444;
+}
+@media screen and (max-width: 900px) {
+   #slide1:checked ~ #controls label:nth-child(2),
+   #slide2:checked ~ #controls label:nth-child(3),
+   #slide3:checked ~ #controls label:nth-child(4),
+   #slide4:checked ~ #controls label:nth-child(1),
+   #slide1:checked ~ #controls label:nth-last-child(2),
+   #slide2:checked ~ #controls label:nth-last-child(3),
+   #slide3:checked ~ #controls label:nth-last-child(4),
+   #slide4:checked ~ #controls label:nth-last-child(1) {
+      margin: 0;
+   }
+   #slides {
+      max-width: calc(100% - 140px);
+      margin: 0 auto;
+   }
+}
+
+  </style>
+
+
+</head>
+
+<!-- <style>
+  .navbar-item {
+      position: relative;
+  }
+  .navbar-item::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: 1px;
+      background-color: #000; /* Цвет линии */
+  }
+  .navbar-item:last-child::after {
+      display: none; /* Убираем линию для последнего элемента */
+  }
+</style> -->
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+        <h1>
+            <a href="#" class="logo"><img src="assets/images/rio_image-removebg-preview.png" alt=""></a>
+        </h1>
+
+        <nav class="navbar" data-navbar>
+
+            <div class="navbar-top">
+                <a href="#" class="logo">RIO</a>
+
+                <button class="nav-close-btn" aria-label="Close menu" data-nav-toggler>
+                    <ion-icon name="close-outline"></ion-icon>
+                </button>
+            </div>
+
+            <ul class="navbar-list">
+
+                <!-- <li class="navbar-item">
+                  <a href="#home" class="navbar-link" data-nav-link>
+                    <span>Home</span>
+
+                    <ion-icon name="chevron-forward"></ion-icon>
+                  </a>
+                </li> -->
+
+                <li class="navbar-item">
+                  <a href="index.html" class="navbar-link" data-nav-link>
+                      <span>Главное</span>
+
+                      <ion-icon name="chevron-forward"></ion-icon>
+                  </a>
+              </li>
+
+              <li class="navbar-item">
+                  <a href="company.html" class="navbar-link" data-nav-link>
+                      <span>О компании</span>
+
+                      <ion-icon name="chevron-forward"></ion-icon>
+                  </a>
+              </li>
+
+              <li class="navbar-item">
+                  <a href="write.html" class="navbar-link" data-nav-link>
+                      <span>Напишите нам</span>
+
+                      <ion-icon name="chevron-forward"></ion-icon>
+                  </a>
+              </li>
+
+              <li class="navbar-item">
+                  <a href="contacts.html" class="navbar-link" data-nav-link>
+                      <span>Контакты</span>
+
+                      <ion-icon name="chevron-forward"></ion-icon>
+                  </a>
+              </li>
+
+              <li class="navbar-item">
+                  <a href="path.html" class="navbar-link" data-nav-link>
+                      <span>Маршруты</span>
+
+                      <ion-icon name="chevron-forward"></ion-icon>
+                  </a>
+              </li>
+
+              
+
+              <li class="navbar-item">
+                  <a href="strahovanie.html" class="navbar-link" data-nav-link>
+                      <span>Страхование</span>
+
+                      <ion-icon name="chevron-forward"></ion-icon>
+                  </a>
+              </li>
+
+            </ul>
+
+        </nav>
+
+        <div class="header-contact">
+
+            <div>
+                <p class="contact-label">Наши контакты</p>
+
+                <a href="tel:12345678910" class="contact-number">+7 775 153 6006</a>
+                <a href="tel:12345678910" class="contact-number">+7 700 127 2222</a>
+
+            </div>
+
+            <div class="contact-icon">
+                <ion-icon name="call-outline"></ion-icon>
+            </div>
+
+        </div>
+
+        <button class="nav-open-btn" aria-label="Open menu" data-nav-toggler>
+            <ion-icon name="menu-outline"></ion-icon>
+        </button>
+
+        <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+</header>
+
+
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="section hero" aria-label="home" id="home"
+      style="background-image: url('./assets/images/voz3priorityLast.jpg')">
+        <div class="container">
+
+          <div class="hero-content">
+
+            <h2 class="h1 hero-title">
+              <span class="span">RIO</span> Logistic Astana
+            </h2>
+
+            <p class="hero-text">
+              Автоперевозки по Казахстану и СНГ
+            </p>
+
+            <a href="#" class="btn-outline" id="openModal">Оставить заявку</a>
+
+            <img src="./assets/images/hero-shape.png" width="116" height="116" loading="lazy"
+              class="hero-shape shape-1">
+
+            <img src="./assets/images/hero-shape.png" width="116" height="116" loading="lazy"
+              class="hero-shape shape-2">
+
+          </div>
+
+        </div>
+      </section>
+
+      
+
+
+
+
+      <!-- 
+        - #ABOUT
+      -->
+
+      <section class="section about" id="about" aria-label="about">
+        <div class="container">
+
+          <figure class="about-banner img-holder" style="--width: 400; --height: 400; position: relative;">
+            <img src="./assets/images/rio_image.jpg" width="400" height="400" loading="lazy" alt="" class="img-cover">
+          </figure>
+
+          <div class="about-content">
+
+            <p class="section-subtitle">Почему мы?</p>
+
+            <h2 class="h2 section-title">RIO Logistic company</h2>
+
+            <p class="section-text">
+              Потому что:
+            </p>
+
+            <ul class="about-list">
+
+              <li class="about-item">
+                <div class="about-icon">
+                  <ion-icon name="chevron-forward"></ion-icon>
+                </div>
+
+                <p class="about-text">
+                  Гибкость и Разнообразие: Независимо от типа автомобиля, будь то легковой, грузовой или специализированный, мы обеспечим его перевозку. Мы готовы к выполнению как крупных партий, так и индивидуальных заказов.
+                </p>
+              </li>
+
+              <li class="about-item">
+                <div class="about-icon">
+                  <ion-icon name="chevron-forward"></ion-icon>
+                </div>
+
+                <p class="about-text">
+                  Безопасность и Забота: Мы придаем высший приоритет безопасности груза.
+                </p>
+              </li>
+
+              <li class="about-item">
+                <div class="about-icon">
+                  <ion-icon name="chevron-forward"></ion-icon>
+                </div>
+
+                <p class="about-text">
+                  Клиентоориентированность: Мы стремимся к полному удовлетворению клиентов и готовы к адаптации к их уникальным потребностям.                </p>
+              </li>
+
+              <li class="about-item">
+                <div class="about-icon">
+                  <ion-icon name="chevron-forward"></ion-icon>
+                </div>
+
+                <p class="about-text">
+                  Круглосуточная работа 24/7.
+                </p>
+              </li>
+
+              <li class="about-item">
+                <div class="about-icon">
+                  <ion-icon name="chevron-forward"></ion-icon>
+                </div>
+
+                <p class="about-text">
+                  Более 10 лет на рынке продаж и автоперевозок автомобилей
+                </li>
+
+              <li class="about-item">
+                <div class="about-icon">
+                  <ion-icon name="chevron-forward"></ion-icon>
+                </div>
+
+                <p class="about-text">
+                  GPS трекеры и мониторинг грузовиков  
+                </p>
+              </li>
+
+            </ul>
+
+            <a href="#" class="btn" id="openModal">Оставить заявку</a>
+
+
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+      <!-- REGION PART -->
+    </br>
+    <section class="popular">
+        <div class="wrapper popular__cont">
+          <h2>Популярные направления</h2>
+          <div class="popular__cont-items">
+                      <a class="popular__cont-items-item" >
+                <p>Актау</p>
+                <svg width="5" height="8" viewBox="0 0 5 8" fill="none" >
+                  <path d="M1 7L4 4L1 1" stroke="#737373" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <p>Алматы</p>
+              </a>
+                      <a class="popular__cont-items-item" >
+                <p>Алматы</p>
+                <svg width="5" height="8" viewBox="0 0 5 8" fill="none">
+                  <path d="M1 7L4 4L1 1" stroke="#737373" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <p>Астана</p>
+              </a>
+                      <a class="popular__cont-items-item" >
+                <p>Алматы</p>
+                <svg width="5" height="8" viewBox="0 0 5 8" fill="none" >
+                  <path d="M1 7L4 4L1 1" stroke="#737373" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <p>Москва</p>
+              </a>
+                      <a class="popular__cont-items-item" >
+                <p>Астана</p>
+                <svg width="5" height="8" viewBox="0 0 5 8" fill="none" >
+                  <path d="M1 7L4 4L1 1" stroke="#737373" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <p>Актау</p>
+              </a>
+                      <a class="popular__cont-items-item" >
+                <p>Астана</p>
+                <svg width="5" height="8" viewBox="0 0 5 8" fill="none" >
+                  <path d="M1 7L4 4L1 1" stroke="#737373" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <p>Актобе</p>
+              </a>
+                      <a class="popular__cont-items-item" >
+                <p>Астана</p>
+                <svg width="5" height="8" viewBox="0 0 5 8" fill="none" >
+                  <path d="M1 7L4 4L1 1" stroke="#737373" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <p>Алматы</p>
+              </a>
+                      <a class="popular__cont-items-item" >
+                <p>Астана</p>
+                <svg width="5" height="8" viewBox="0 0 5 8" fill="none">
+                  <path d="M1 7L4 4L1 1" stroke="#737373" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <p>Атырау</p>
+              </a>
+                      <a class="popular__cont-items-item" >
+                <p>Астана</p>
+                <svg width="5" height="8" viewBox="0 0 5 8" fill="none" >
+                  <path d="M1 7L4 4L1 1" stroke="#737373" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <p>Москва</p>
+              </a>
+                      <a class="popular__cont-items-item">
+                <p>Астана</p>
+                <svg width="5" height="8" viewBox="0 0 5 8" fill="none">
+                  <path d="M1 7L4 4L1 1" stroke="#737373" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <p>Тараз</p>
+              </a>
+                      <a class="popular__cont-items-item" >
+                <p>Астана</p>
+                <svg width="5" height="8" viewBox="0 0 5 8" fill="none" >
+                  <path d="M1 7L4 4L1 1" stroke="#737373" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <p>Шымкент</p>
+              </a>
+                    
+              </div>
+
+            <!-- </br>
+              <h2>Типы транспорта</h2>
+            </br>
+          </br>
+          <div class="transport__cont-items">
+                      <a class="transport__cont-items-item" >
+                <p>Седан</p>
+              
+              </a>
+                      <a class="transport__cont-items-item" >
+                <p>Кроссовер</p>
+               
+              </a>
+                      <a class="transport__cont-items-item" >
+                <p>Джип</p>
+                
+              </a>
+                      <a class="transport__cont-items-item" >
+                <p>Пикап</p>
+                
+              </a>
+                      <a class="transport__cont-items-item" >
+                <p>Минивен</p>
+               
+              </a>  
+                  </div> -->
+        </div>
+      </section>
+     
+
+      <!-- END PART -->
+   
+      <br>
+      <br>
+
+      <!-- AVTOVOZES PART -->
+
+      <section id="tranding">
+        <div class="containers">
+          <h3 class="text-center section-subheading">- Logistic -</h3>
+          <h1 class="text-center section-heading">Наши Автовозы</h1>
+        </div>
+        <div class="container">
+          <div class="swiper tranding-slider">
+            <div class="swiper-wrapper">
+              <!-- Slide-start -->
+              <div class="swiper-slide tranding-slide">
+                <div class="tranding-slide-img">
+                  <img src="assets/images/avtovoz1.jpg" alt="Tranding">
+                </div>
+                <div class="tranding-slide-content">
+                  <!-- <h1 class="food-price">$20</h1> -->
+                  <div class="tranding-slide-content-bottom">
+                    <!-- <h2 class="food-name">
+                      Special Pizza
+                    </h2> -->
+                    <h3 class="food-rating">
+                      <!-- <span>4.5</span>
+                      <div class="rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                      </div> -->
+                    </h3>
+                  </div>
+                </div>
+              </div>
+              <!-- Slide-end -->
+              <!-- Slide-start -->
+              <div class="swiper-slide tranding-slide">
+                <div class="tranding-slide-img">
+                  <img src="assets/images/avtovoz2.jpg" alt="Tranding">
+                </div>
+                <div class="tranding-slide-content">
+                  <!-- <h1 class="food-price">$20</h1> -->
+                  <div class="tranding-slide-content-bottom">
+                    <!-- <h2 class="food-name">
+                      Meat Ball
+                    </h2> -->
+                    <h3 class="food-rating">
+                      <!-- <span>4.5</span>
+                      <div class="rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                      </div> -->
+                    </h3>
+                  </div>
+                </div>
+              </div>
+              <!-- Slide-end -->
+              <!-- Slide-start -->
+              <div class="swiper-slide tranding-slide">
+                <div class="tranding-slide-img">
+                  <img src="assets/images/avtovoz3.jpg" alt="Tranding">
+                </div>
+                <div class="tranding-slide-content">
+                  <!-- <h1 class="food-price">$40</h1> -->
+                  <div class="tranding-slide-content-bottom">
+                    <!-- <h2 class="food-name">
+                      Burger
+                    </h2> -->
+                    <h3 class="food-rating">
+                      <!-- <span>4.5</span>
+                      <div class="rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                      </div> -->
+                    </h3>
+                  </div>
+                </div>
+              </div>
+              <!-- Slide-end -->
+              <!-- Slide-start -->
+              <div class="swiper-slide tranding-slide">
+                <div class="tranding-slide-img">
+                  <img src="assets/images/avtovoz4.jpg" alt="Tranding">
+                </div>
+                <div class="tranding-slide-content">
+                  <!-- <h1 class="food-price">$15</h1> -->
+                  <div class="tranding-slide-content-bottom">
+                    <!-- <h2 class="food-name">
+                      Frish Curry
+                    </h2> -->
+                    <h3 class="food-rating">
+                      <!-- <span>4.5</span>
+                      <div class="rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                      </div> -->
+                    </h3>
+                  </div>
+                </div>
+              </div>
+              <!-- Slide-end -->
+              <!-- Slide-start -->
+              <div class="swiper-slide tranding-slide">
+                <div class="tranding-slide-img">
+                  <img src="assets/images/avtovoz5.jpg" alt="Tranding">
+                </div>
+                <div class="tranding-slide-content">
+                  <!-- <h1 class="food-price">$15</h1> -->
+                  <div class="tranding-slide-content-bottom">
+                    <!-- <h2 class="food-name">
+                      Pane Cake
+                    </h2> -->
+                    <h3 class="food-rating">
+                      <!-- <span>4.5</span>
+                      <div class="rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                      </div> -->
+                    </h3>
+                  </div>
+                </div>
+              </div>
+              <!-- Slide-end -->
+              <!-- Slide-start -->
+              <div class="swiper-slide tranding-slide">
+                <div class="tranding-slide-img">
+                  <img src="assets/images/voz3prioprity.jpg" alt="Tranding">
+                </div>
+                <div class="tranding-slide-content">
+                  <!-- <h1 class="food-price">$20</h1> -->
+                  <div class="tranding-slide-content-bottom">
+                    <!-- <h2 class="food-name">
+                      Vanilla cake
+                    </h2> -->
+                    <h3 class="food-rating">
+                      <!-- <span>4.5</span>
+                      <div class="rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                      </div> -->
+                    </h3>
+                  </div>
+                </div>
+              </div>
+              <!-- Slide-end -->
+              <!-- Slide-start -->
+              <div class="swiper-slide tranding-slide">
+                <div class="tranding-slide-img">
+                  <img src="assets/images/avtovoz1.jpg" alt="Tranding">
+                </div>
+                <div class="tranding-slide-content">
+                  <!-- <h1 class="food-price">$8</h1> -->
+                  <div class="tranding-slide-content-bottom">
+                    <!-- <h2 class="food-name">
+                      Straw Cake
+                    </h2> -->
+                    <h3 class="food-rating">
+                     
+                    </h3>
+                  </div>
+                </div>
+              </div>
+              <!-- Slide-end -->
+            </div>
+  
+            <div class="tranding-slider-control">
+              <div class="swiper-button-prev slider-arrow">
+                <ion-icon name="arrow-back-outline"></ion-icon>
+              </div>
+              <div class="swiper-button-next slider-arrow">
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+  
+          </div>
+        </div>
+      </section>
+     
+  
+      <!-- 
+        - #FEATURE
+      -->
+
+      <section class="section feature" aria-label="feature">
+        <div class="container">
+
+          <div class="title-wrapper">
+
+            <div>
+              <p class="section-subtitle">RIO Logistic company</p>
+
+              <h2 class="h2 section-title">Схема работы</h2>
+
+              <!-- <p class="section-text">
+                Наша схема работы в обобщенном виде
+              </p> -->
+            </div>
+
+            <a href="#" class="btn" id="openModal">Оставить заявку</a>
+
+          </div>
+
+          <ul class="feature-list grid-list">
+
+            <li>
+              <div class="feature-card" style="--card-number: '01'">
+
+                <div class="card-icon">
+                  <img src="./assets/images/feature-icon-1.png" width="72" height="91" alt="">
+                </div>
+
+                <h3 class="h3 card-title">Оставите заявку</h3>
+
+                <p class="card-text">
+                  Наш менеджер свяжется с вами, рассчитает сумму перевоки и предоставит всю необходимую информацию              </p>
+
+                <a href="#" class="card-btn" aria-label="Read more">
+                  <ion-icon name="arrow-forward"></ion-icon>
+                </a>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="feature-card" style="--card-number: '02'">
+
+                <div class="card-icon">
+                  <img src="./assets/images/feature-icon-2.png" width="94" height="94" alt="">
+                </div>
+
+                <h3 class="h3 card-title">Подписывание договора и транспортировка</h3>
+
+                <p class="card-text">
+                  Выдается договор с прописанными условиями и сроками, оплачивается перевозка, автомобиль грузится, тщательно заркепляется и отправляется на место разгрузки
+                </p>
+
+                <a href="#" class="card-btn" aria-label="Read more">
+                  <ion-icon name="arrow-forward"></ion-icon>
+                </a>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="feature-card" style="--card-number: '03'">
+
+                <div class="card-icon">
+                  <img src="./assets/images/feature-icon-3.png" width="93" height="93" alt="">
+                </div>
+
+                <h3 class="h3 card-title">Доставка и разгрузка</h3>
+
+                <p class="card-text">
+                  Прибытие к месту забора груза. 
+                  Координация с получателем. Разгрузка автомобиля с использованием специализированного оборудования.
+                   Предоставление клиенту отчета о выполненной работе.
+                </p>
+
+                <a href="#" class="card-btn" aria-label="Read more">
+                  <ion-icon name="arrow-forward"></ion-icon>
+                </a>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #PROJECT
+      -->
+
+      <section class="section project" aria-label="project">
+        <div class="container">
+
+          <p class="section-subtitle">Projects</p>
+
+          <h2 class="h2 section-title">Какие автомобили перевозим</h2>
+<!-- 
+          <p class="section-text">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry the standard dummy text ever since
+            the when an
+            printer took.
+          </p> -->
+
+          <br>
+          <br>
+          <ul class="project-list">
+
+            <li class="project-item">
+              <div class="project-card">
+
+                <figure class="card-banner img-holder" style="--width: 397; --height: 352;">
+                  <img src="./assets/images/crossover.png" width="397" height="352" loading="lazy"
+                    alt="Warehouse inventory" class="img-cover">
+                </figure>
+
+                <button class="action-btn" aria-label="View image">
+                  <ion-icon name="expand-outline"></ion-icon>
+                </button>
+
+                <div class="card-content">
+                  <p class="card-tag">RIO Logistic , Astana</p>
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Кроссоверы</a>
+                  </h3>
+
+                  <!-- <a href="#" class="card-link">Read More</a> -->
+                </div>
+
+              </div>
+            </li>
+
+            <li class="project-item">
+              <div class="project-card">
+
+                <figure class="card-banner img-holder" style="--width: 397; --height: 352;">
+                  <img src="./assets/images/sedan.jpg" width="397" height="352" loading="lazy"
+                    alt="Warehouse inventory" class="img-cover">
+                </figure>
+
+                <button class="action-btn" aria-label="View image">
+                  <ion-icon name="expand-outline"></ion-icon>
+                </button>
+
+                <div class="card-content">
+                  <p class="card-tag">RIO Logistic , Astana</p>
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Седаны</a>
+                  </h3>
+
+                  <!-- <a href="#" class="card-link">Read More</a> -->
+                </div>
+
+              </div>
+            </li>
+
+            <li class="project-item">
+              <div class="project-card">
+
+                <figure class="card-banner img-holder" style="--width: 397; --height: 352;">
+                  <img src="./assets/images/jeep.jpg" width="397" height="352" loading="lazy"
+                    alt="Warehouse inventory" class="img-cover">
+                </figure>
+
+                <button class="action-btn" aria-label="View image">
+                  <ion-icon name="expand-outline"></ion-icon>
+                </button>
+
+                <div class="card-content">
+                  <p class="card-tag">RIO Logistic , Astana</p>
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Внедорожники</a>
+                  </h3>
+
+                  <!-- <a href="#" class="card-link">Read More</a> -->
+                </div>
+
+              </div>
+            </li>
+
+            <li class="project-item">
+              <div class="project-card">
+
+                <figure class="card-banner img-holder" style="--width: 397; --height: 352;">
+                  <img src="./assets/images/pickup.jpg" width="397" height="352" loading="lazy"
+                    alt="Warehouse inventory" class="img-cover">
+                </figure>
+
+                <button class="action-btn" aria-label="View image">
+                  <ion-icon name="expand-outline"></ion-icon>
+                </button>
+
+                <div class="card-content">
+                  <p class="card-tag">RIO Logistic , Astana</p>
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Пикапы</a>
+                  </h3>
+
+                  <!-- <a href="#" class="card-link">Read More</a> -->
+                </div>
+
+              </div>
+            </li>
+
+            <li class="project-item">
+              <div class="project-card">
+
+                <figure class="card-banner img-holder" style="--width: 397; --height: 352;">
+                  <img src="./assets/images/miniwen.jpg" width="397" height="352" loading="lazy"
+                    alt="Warehouse inventory" class="img-cover">
+                </figure>
+
+                <button class="action-btn" aria-label="View image">
+                  <ion-icon name="expand-outline"></ion-icon>
+                </button>
+
+                <div class="card-content">
+                  <p class="card-tag">RIO Logistic , Astana</p>
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Минивены</a>
+                  </h3>
+
+                  <!-- <a href="#" class="card-link">Read More</a> -->
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #BLOG
+      -->
+
+      <section class="section blog" aria-label="blog" id="blog">
+        <div class="container">
+
+          <p class="section-subtitle">О компании</p>
+
+          <h2 class="h2 section-title">RIO Logistic</h2>
+
+          <p class="section-text">
+            Компания РИО Логистик – ваш надежный партнер в области перевозки
+автомобилей любого типа. Наша компания сочетает в себе многолетний опыт,
+профессионализм и индивидуальный подход к каждому клиенту. Мы работаем на рынке более 10 лет и за это время зарекомендовали себя как надежный и компетентный партнер. 
+ Безопасность вашего груза - наш приоритет. Мы используем передовые технологии отслеживания, обеспечивая постоянный контроль за перемещением автомобилей в режиме реального времени.
+Наши транспортные средства оборудованы современными системами безопасности. Наш индивидуальный подход позволяет нам лучше понимать ваши потребности и предоставлять услуги, соответствующие вашим требованиям.
+Выбирая РИО Логистик, вы выбираете надежного и опытного партнера
+для перевозки ваших автомобилей.
+
+Мы готовы воплощать ваши логистические задумки в жизнь с
+максимальным комфортом и эффективностью.
+          </p>
+
+      
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #NEWSLETTER
+      -->
+
+      <section class="section newsletter" aria-label="newsletter">
+        <div class="container">
+
+          <!-- <figure class="newsletter-banner img-holder">
+            <img src="./assets/images/newsletter-banner.png" width="303" height="381" alt="newsletter banner"
+              class="w-100">
+          </figure> -->
+
+          <div class="newsletter-content">
+
+            <h2 class="h2 section-title title">Напишите нам</h2>
+
+            <form action="https://api.whatsapp.com/send?phone=+7 775 153 6006_WhatsApp" class="newsletter-form" method="get">
+              <input type="text" name="text" placeholder="Напишите нам на WhatsApp" aria-label="text" class="email-field">
+              <button type="submit" class="newsletter-btn">Отправить</button>
+          </form>
+
+          </div>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer-top section">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">Наши соц-сети</a>
+
+          <!-- <p class="footer-text">
+            Many desktop publishing packages and web page editors now use are dolra Ipsum as their default.
+          </p> -->
+          <br>
+          <ul class="social-list">
+
+            <li>
+              <a href="https://wa.me/+7 775 153 6006" class="social-link">
+                <ion-icon name="logo-whatsapp"></ion-icon>        
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="paper-plane-outline"></ion-icon>
+                </a>
+            </li>
+
+            <li>
+              <a href="https://www.instagram.com/riologistics_ast?igsh=b2UyZW93dnRxbmtx" class="social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+
+            <!-- <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-youtube"></ion-icon>
+              </a>
+            </li> -->
+
+          </ul>
+
+        </div>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Контактная информация</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">+7 775 153 6006</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">+7 700 127 2222</a>
+          </li>
+
+
+          <li>
+            <a href="#" class="footer-link">riologistic.astana@gmail.com</a>
+          </li>
+
+          
+          <li>
+            <a href="#" class="footer-link">г. Астана</a>
+          </li>
+
+        
+
+        </ul>
+      </div>
+<!-- 
+      <div class="footer-bottom">
+        <p class="copyright">
+          &copy; 2022 Transportio. All Rights Reserved by <a href="#" class="copyright-link">codewithsadee</a>
+        </p>
+      </div> -->
+
+    </div>
+    <div class="whatsapp-btn-container">
+      <a class="whatsapp-btn" href="https://wa.me/+77751536006"><i class="fab fa-whatsapp"></i></a>
+      <span>Contact Us</span>
+  </div>
+  
+  </footer>
+
+
+
+
+  <!-- MY MODAL CODE -->
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Оставить заявку</h3>
+      <br>
+      <form id="requestForm">
+        <!-- <label for="name">Имя:</label><br> -->
+        <input type="text" id="name" name="name" placeholder="Имя*" required><br>
+        <!-- <label for="phone">Номер телефона:</label><br> -->
+        <input type="tel" id="phone" name="phone" placeholder="Номер*" required><br><br>
+        <input type="submit" value="Отправить">
+      </form>
+    </div>
+  </div>
+ 
+  
+
+
+
+
+
+  <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-top-btn" aria-label="Back to top" data-back-top-btn>
+    <ion-icon name="chevron-up"></ion-icon>
+  </a>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js" defer></script>
+
+  <script>
+  
+  </script>
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!-- <script src="assets/js/modal.js"></script> -->
+
+  <script src="assets/js/modal.js"></script>
+
+  <script>
+    // Функция для открытия модального окна
+    function openModal() {
+      var modal = document.getElementById("myModal");
+      modal.style.display = "block";
+      modal.classList.remove("fadeOut");
+      modal.classList.add("fadeIn");
+    }
+  
+    // Функция для закрытия модального окна
+    function closeModal() {
+      var modal = document.getElementById("myModal");
+      modal.classList.remove("fadeIn");
+      modal.classList.add("fadeOut");
+      setTimeout(function() {
+        modal.style.display = "none";
+        modal.classList.remove("fadeOut");
+      }, 300);
+    }
+  
+    // Находим все ссылки "Оставить заявку" и добавляем обработчик события
+    var openModalLinks = document.querySelectorAll('.btn');
+    openModalLinks.forEach(function(link) {
+      link.addEventListener('click', function(event) {
+        event.preventDefault(); // Отменяем стандартное действие по клику
+  
+        openModal(); // Вызываем функцию для открытия модального окна
+      });
+    });
+  
+    // Добавляем обработчик события для закрытия модального окна
+    var closeBtn = document.getElementsByClassName("close")[0];
+    closeBtn.onclick = function() {
+      closeModal();
+    }
+  
+    // Добавляем обработчик события для закрытия модального окна при клике вне его области
+    window.onclick = function(event) {
+      var modal = document.getElementById("myModal");
+      if (event.target == modal) {
+        closeModal();
+      }
+    }
+  </script>
+    
+
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="assets/js/slider.js"></script>
+</body>
+
+</html>
