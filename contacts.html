@@ -301,67 +301,17 @@
 <br><br><br><br><br><br>
 
 			
-		<!-- Start Contact Us -->
-		<section class="contact-us section">
-			<div class="container">
-				<div class="inner">
-					<div class="row"> 
-						<div class="col-lg-6">
-							<div class="contact-us-left">
-								<!--Start Google-map -->
-								<div id="myMap"></div>
-								<!--/End Google-map -->
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<div class="contact-us-form">
-								<h2>Отправить</h2>
-								<p>If you have any questions please fell free to contact with us.</p>
-								<!-- Form -->
-								<form class="form" method="post" action="mail/mail.php">
-									<div class="row">
-										<div class="col-lg-6">
-											<div class="form-group">
-												<input type="text" name="name" placeholder="Name" required="">
-											</div>
-										</div>
-										<div class="col-lg-6">
-											<div class="form-group">
-												<input type="email" name="email" placeholder="Email" required="">
-											</div>
-										</div>
-										<div class="col-lg-6">
-											<div class="form-group">
-												<input type="text" name="phone" placeholder="Phone" required="">
-											</div>
-										</div>
-										<div class="col-lg-6">
-											<div class="form-group">
-												<input type="text" name="subject" placeholder="Subject" required="">
-											</div>
-										</div>
-										<div class="col-lg-12">
-											<div class="form-group">
-												<textarea name="message" placeholder="Your Message" required=""></textarea>
-											</div>
-										</div>
-										<div class="col-12">
-											<div class="form-group login-btn">
-												<button class="btn" type="submit">Send</button>
-											</div>
-											
-										</div>
-									</div>
-								</form>
-								<!--/ End Form -->
-							</div>
-						</div>
-					</div>
-				</div>
-				
-			</div>
-		</section>
-		<!--/ End Contact Us -->
+<section>
+   <h2 class="h2 section-title" style="text-align: center;">RIO Logistic company</h2>
+   <p style="text-align: right;">Контактные номера: +7 (775) 153 60-06, +7 (700) 127 22-22</p>
+   
+   <!-- Вставьте код для карты ниже -->
+   <div id="map" style="height: 400px; width: 100%;"></div>
+   
+</section>
+
+     
+   </section>
 
   
 
@@ -385,8 +335,28 @@
   <script src="assets/js/modal.js"></script>
 
   <!-- GOOGLE MAPS -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
 
+  <script>
+   // Функция для инициализации карты
+   function initMap() {
+       // Координаты вашего офиса
+       var myLatLng = { lat: 51.5074, lng: -0.1278 };
+
+       // Создание карты
+       var map = new google.maps.Map(document.getElementById('map'), {
+           zoom: 15,
+           center: myLatLng
+       });
+
+       // Добавление маркера на карту
+       var marker = new google.maps.Marker({
+           position: myLatLng,
+           map: map,
+           title: 'Наш офис'
+       });
+   }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
     
 </body>
 
